@@ -130,7 +130,7 @@
 																		("America/San_Francisko" "San Francisko")))
 	)
 
-
+(use-package memory-usage :ensure t)
 
 (provide 'features-init)
 

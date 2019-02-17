@@ -18,7 +18,6 @@
 											 company-css
 											 )
   )
-
  )
 
 
@@ -53,7 +52,8 @@
 ;; Setup company
 (use-package company :ensure t
   :diminish company-mode
-  :bind ("M-S-SPC" . company-complete)
+  :bind   ("M-S-SPC" . company-complete)
+  :init   (global-company-mode 1)
   :config (add-hook 'prog-mode-hook 'company-mode)
 	        (add-hook 'haskell-mode-hook
             (lambda ()
