@@ -77,10 +77,8 @@
 ;; From development-init
 
 ;; View/jump to fixme, todo, XXX. Priority with multiple 'e' fixmeeee
-(use-package fixmee :ensure t :disabled
-  :diminish fixmee-mode
-  :diminish hi-lock-mode
-  :diminish button-lock-mode
+(use-package fixmee :ensure t
+  :diminish
   :init (setq global-fixmee-mode 1)
  )
 

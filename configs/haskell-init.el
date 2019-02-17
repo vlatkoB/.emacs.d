@@ -6,14 +6,14 @@
 ;; Define everything needed for Haskell development
 
 ;; Applying hlint suggestion -- doesn't work
-;; (use-package hlint-refactor
-;;   :ensure t
-;;   :diminish hlint-refactor-mode
-;;   :init
-;;     (add-hook 'haskell-mode-hook 'hlint-refactor-mode)
-;;     (bind-key "C-c , b" 'hlint-refactor-refactor-buffer   haskell-mode-map)
-;;     (bind-key "C-c , r" 'hlint-refactor-refactor-at-point haskell-mode-map)
-;;  )
+(use-package hlint-refactor
+  :ensure t
+  :diminish hlint-refactor-mode
+  :init
+    (add-hook 'haskell-mode-hook 'hlint-refactor-mode)
+    (bind-key "C-c , b" 'hlint-refactor-refactor-buffer   haskell-mode-map)
+    (bind-key "C-c , r" 'hlint-refactor-refactor-at-point haskell-mode-map)
+ )
 
 
 ;; Setup auto-completion with company

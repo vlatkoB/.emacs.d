@@ -24,7 +24,8 @@
     (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
     (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
     (add-hook 'haskell-mode-hook 'turn-on-haskell-decl-scan)
-    (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
+    ;; (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
+
 
     (use-package haskell-interactive-mode)
     (use-package haskell-process)
@@ -224,6 +225,8 @@ import Data.Vector (Vector)")))
 		completion-at-point-functions)
  )
 
+
+(diminish 'interactive-haskell-mode)
 
 (provide 'haskell-mode-init)
 

@@ -23,7 +23,8 @@
 		(projectile-indexing-method                'alien)
 		(projectile-sort-order                     'recentf)
     (projectile-tags-command                   "codex update")
-		(projectile-mode-line                     '(:eval (format " [%s]" (projectile-project-name))))
+    (projectile-mode-line-prefix               " ")
+		(projectile-mode-line                      '(:eval (format "[%s]" (projectile-project-name))))
  )
 
 (setq projectile-globally-ignored-directories
