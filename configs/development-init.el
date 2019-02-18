@@ -204,6 +204,7 @@
 (use-package haskell-init)
 
 
+(diminish 'flyspell-mode)
 
 (provide 'development-init)
 

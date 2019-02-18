@@ -45,6 +45,9 @@
 ;; Context menu key acts like M-x
 (bind-key "<menu>" 'smex)
 
+;; Format with brittany
+(bind-key "M-ž" 'format-haskell-with-brittany_and_stylish-haskell)
+
 
 
 (provide 'keybindings-init)

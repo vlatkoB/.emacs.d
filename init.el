@@ -40,17 +40,17 @@
 (add-to-list 'load-path (expand-file-name "configs" user-emacs-directory))
 
 ;; (use-package debug-init :disabled) ;; Debugging statements
+;; (use-package helm-init)            ;; Helm config (only helm-swoop)
 (use-package functions-init)       ;; Some functions used through out setup
 (use-package theme-init)           ;; Set theme and visual appearence
-(use-package helm-init)            ;; Helm config (only helm-swoop)
 (use-package ido-init)             ;; ido everywhere config
 (use-package layout-init)          ;; GUI layout
 (use-package sessions-init)        ;; Sessions perserving stuff
 (use-package features-init)        ;; Various features
 (use-package keybindings-init)     ;; Custom key bindings
-(use-package development-init)     ;; Setup development environment
 (use-package org-init)             ;; Org-mode stuff
 (use-package misc-init)            ;; Misc stuff
+(use-package development-init)     ;; Setup development environment
 
 
 ;; Ignore some messages in mini-buffer

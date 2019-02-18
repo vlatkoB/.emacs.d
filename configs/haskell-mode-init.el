@@ -90,7 +90,7 @@
 	   )
 	:custom
 		(add-to-list 'completion-at-point-functions     'haskell-process-completions-at-point)
-		(haskell-align-imports-pad-after-name            nil)
+		(haskell-align-imports-pad-after-name            t) ;; nil)
 		(haskell-ask-also-kill-buffers                   nil)
 		(haskell-completions-complete-operators          nil)
 		(haskell-compile-cabal-build-command            "stack build -j 7 --fast --ghc-options=\"-j +RTS -A32M -RTS\"")
@@ -103,6 +103,7 @@
 		(haskell-interactive-mode-scroll-to-bottom       t)
 		(haskell-interactive-types-for-show-ambiguous    t) ;; check
 		(haskell-interactive-popup-errors                nil)
+    (haskell-mode-stylish-haskell-path              "stylish-haskell")
 		(haskell-notify-p                                t)
 		(haskell-process-args-cabal-repl                '("--ghc-options=-ferror-spans -fshow-loaded-modules"))
 		(haskell-process-args-cabal-new-repl            '("--ghc-options=-ferror-spans -fshow-loaded-modules"))
@@ -118,12 +119,13 @@
 		(haskell-process-do-cabal-format-string         ":!cd %s && %s")
 		(haskell-process-load-or-reload-prompt           nil)
 		(haskell-process-log                             t)
-		(haskell-process-path-ghci                       "stack")
-		(haskell-process-reload-with-fbytecode           nil)
+		(haskell-process-path-ghci                       "stack ghci")
+		(haskell-process-reload-with-fbytecode           t) ;; nil)
 		(haskell-process-suggest-haskell-docs-imports    t)
 		(haskell-process-suggest-hoogle-imports          t)
 		(haskell-process-suggest-hayoo-imports           nil)
 		(haskell-process-suggest-remove-import-lines     t)
+
 		(haskell-process-suggest-add-package             t)
 		(haskell-process-type                           'stack-ghci)
 		(haskell-process-use-presentation-mode           t)
@@ -178,7 +180,8 @@
 	  haskell-doc-show-prelude      nil ;;t
 	  haskell-doc-show-strategy     t
 	  haskell-doc-show-user-defined t
-	  haskell-doc-chop-off-context  nil
+	  haskell-doc-chop-off-context  nil ;; t
+	  haskell-doc-chop-off-fctname  nil
 	  haskell-doc-prettify-types    nil)
     (add-hook 'haskell-mode-hook 'haskell-doc-mode)
  )

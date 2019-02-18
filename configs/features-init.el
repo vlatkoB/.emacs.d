@@ -132,6 +132,13 @@
 
 (use-package memory-usage :ensure t)
 
+;; Prevent creating file "transient/history.el"
+(custom-set-variables
+ '(transient-mark-mode nil)
+ '(transient-save-history nil)
+ )
+
+
 (provide 'features-init)
 
 ;;; features-init ends here

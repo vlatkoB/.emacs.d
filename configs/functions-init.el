@@ -306,6 +306,19 @@ With negative N, comment out original line and use the absolute value."
    (get-buffers-matching-mode major-mode)
    (car (occur-read-primary-args))))
 
+;; Format with Brittany
+(defun format-haskell-with-brittany_and_stylish-haskell ()
+  "Function formats haskell buffer with brittany on save."
+  (interactive)
+  (when (eq major-mode 'haskell-mode)
+    (shell-command-to-string (format "brittany --write-mode inplace %s" buffer-file-name))
+    (revert-buffer :ignore-auto :noconfirm)
+    (haskell-mode-stylish-buffer)
+    (save-buffer)
+    )
+  )
+
+
 (provide 'functions-init)
 
 ;;; functions-init ends here
