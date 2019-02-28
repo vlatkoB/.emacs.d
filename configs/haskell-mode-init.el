@@ -11,6 +11,20 @@
 ;; (advice-add 'haskell-process-trigger-suggestions
 ;;    :around #'haskell-process-trigger-suggestions-ad)
 
+;; (custom-set-variables
+;;  '(haskell-mode-hook
+;;    (quote
+;;     (capitalized-words-mode flyspell-prog-mode haskell-decl-scan-mode haskell-indentation-mode highlight-uses-mode imenu-add-menubar-index interactive-haskell-mode
+;; 			    (lambda nil
+;; 			      (set
+;; 			       (make-local-variable
+;; 				(quote company-backends))
+;; 			       (append
+;; 				(quote
+;; 				 ((company-capf company-dabbrev-code)))
+;; 				company-backends))))))
+;; )
+
 ;; Setup haskell-mode
 (use-package haskell-mode :ensure t
   :config
@@ -94,7 +108,7 @@
 		(haskell-ask-also-kill-buffers                   nil)
 		(haskell-completions-complete-operators          nil)
 		(haskell-compile-cabal-build-command            "stack build -j 7 --fast --ghc-options=\"-j +RTS -A32M -RTS\"")
-		;; (haskell-hoogle-url                             "http://hoogle.haskell.org/?q=%s")
+		;; (haskell-hoogle-url                             "https://hoogle.haskell.org/?hoogle=%s")
 		(haskell-hoogle-command                          "hoogle --color -l --numbers --count=10")
 		(haskell-indentation-electric-flag               t)
 		(haskell-interactive-mode-eval-mode             'haskell-mode)

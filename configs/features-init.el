@@ -8,7 +8,7 @@
       ;; browse-url-generic-program  "chromium-browser")
       browse-url-generic-program  "firefox"
 )
-(global-set-key (kbd "<f12>") 'browse-url-at-point)
+(global-set-key (kbd "s-<return>") 'browse-url-at-point)
 
 
 ;; Scroll with mouse 1-by-1

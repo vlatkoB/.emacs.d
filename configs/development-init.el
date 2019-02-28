@@ -116,21 +116,15 @@
 ;;----------------------------------------------------------------------------
 ;; Add spell-checking in comments for all programming language modes
 ;;----------------------------------------------------------------------------
-;; (use-package flyspell :ensure t :disabled
-;;   :diminish flyspell-mode
-;;   :config
-;;     (if (fboundp 'prog-mode)
-;; 				(add-hook 'prog-mode-hook 'flyspell-prog-mode)
-;;       (dolist (hook '(emacs-lisp-mode-hook yaml-mode shell-mode-hook haskell-mode-hook))
-;; 				(add-hook hook 'flyspell-prog-mode)))
-;;     (add-to-list 'ispell-skip-region-alist '("^|" . "^|]"))
-;;     (eval-after-load 'haskell-mode
-;;       (progn
-;; 				(put 'haskell-mode 'flyspell-mode-predicate 'flyspell-ignore-quasiquotes)
-;; 				(add-hook 'haskell-mode-hook
-;; 									(lambda ()
-;; 										(setq flyspell-generic-check-word-predicate 'flyspell-ignore-quasiquotes)))))
-;;  )
+(use-package flyspell :ensure t
+  :diminish flyspell-mode
+  :config
+    (if (fboundp 'prog-mode)
+				(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+      (dolist (hook '(emacs-lisp-mode-hook yaml-mode shell-mode-hook haskell-mode-hook))
+				(add-hook hook 'flyspell-prog-mode)))
+    (add-to-list 'ispell-skip-region-alist '("^|" . "^|]"))
+ )
 
 
 ;; Prepare Snippets
