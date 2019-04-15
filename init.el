@@ -28,6 +28,11 @@
 			;; use-package-minimum-reported-time 0.2
 			;; use-package-compute-statistics    t
 			)
+      
+(custom-set-variables
+ '(package-load-list '(all (haskell-mode "20181122.823")))
+ ; '(package-load-list '(all )
+ )
 
 ;; Set custom Customization file
 (setq custom-file "~/.emacs.d/configs/dummy.el")
