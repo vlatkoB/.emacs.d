@@ -71,7 +71,7 @@
 )
 
 ;; Shorten prompt answers
-;; (defalias 'yes-or-no-p 'y-or-n-p)
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 
 ;; From development-init

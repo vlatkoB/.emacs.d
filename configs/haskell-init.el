@@ -24,9 +24,17 @@
  )
 
 
-;; ;; Prepare Hamlet, Shakespeare, ...
-;; (use-package hamlet-mode      :ensure t)
-;; (use-package shakespeare-mode :ensure t)
+;; Setup mode for hamlet, julius and lucius templates.
+(use-package shakespeare-mode
+  :ensure t
+  :bind (:map shakespeare-mode-map
+           ("C-<"   . 'haskell-move-nested-left)
+           ("C->"   . 'haskell-move-nested-right)
+           ;; ("<tab>" . 'shakespeare-hamlet-mode-indent-line)
+           )
+  :init
+
+  )
 ;; (use-package mmm-mode :disabled -- slows down typing
 ;;   :ensure t
 ;;   :diminish mmm-mode
