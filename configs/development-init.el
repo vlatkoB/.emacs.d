@@ -176,6 +176,24 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 
+;; Run 'stop-server' located in project's root on every manual save of Haskell file
+(defvar stop-server-script-name "stop-server"
+  "Name of the script in project root directory." )
+(defun stop-dev-server ()
+  "Kill server so ghcid can reload with server already stopped from outside."
+  (when (eq major-mode 'haskell-mode)                                     ;; if haskell mode
+    (when (memq this-command '(save-buffer))                              ;; if manual save
+      (let* ((project-root (projectile-project-root))                     ;; curr project root
+             (script-path  (concat project-root stop-server-script-name)) ;; full path
+             (script-exist (file-exists-p script-path))                   ;; does it exist
+             (shell-cmd    (concat script-path " %s")))                   ;; make it accept param
+        (if script-exist
+            (progn (message "Stopping server with script: %s" script-path)
+                   (shell-command-to-string (format shell-cmd buffer-file-name)))
+          (message "Missing script %s. No action." script-path))))) )
+(add-hook 'before-save-hook 'stop-dev-server)
+
+
 ;; Keep formating with space tabulation, i.e. inside records
 (use-package keep-formation  :ensure t :disabled
   :load-path "~/.emacs.d/elisp/keep-formation/"
