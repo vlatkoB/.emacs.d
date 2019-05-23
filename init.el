@@ -51,6 +51,7 @@
 (use-package features-init)        ;; Various features
 (use-package keybindings-init)     ;; Custom key bindings
 (use-package org-init)             ;; Org-mode stuff
+(use-package markdown-init)        ;; Writing markdown stuff
 (use-package misc-init)            ;; Misc stuff
 (use-package development-init)     ;; Setup development environment
 
@@ -72,6 +73,8 @@
 (add-to-list 'auto-mode-alist '("\\.xlf\\'" . nxml-mode))
 
 (byte-compile-disable-warning 'cl-functions)
+
+(set-language-environment "utf-8")
 
 (provide 'init)
 ;;; init ends here

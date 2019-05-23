@@ -46,10 +46,12 @@
     (defun tabbar-grouping () ;; show all source files in Develop group
       (list (cond
              ((eq major-mode 'emacs-lisp-mode)		      "Development")
+             ((eq major-mode 'gfm-mode)          	      "Development")
              ((eq major-mode 'hamlet-mode)		          "Development")
              ((eq major-mode 'haskell-mode)		          "Development")
              ((eq major-mode 'haskell-cabal-mode)	      "Development")
              ((eq major-mode 'magit-status-mode)	      "Development")
+             ((eq major-mode 'markdown-mode)    	      "Development")
              ((eq major-mode 'nxml-mode)		            "Development")
              ((eq major-mode 'org-mode)		              "Development")
              ((eq major-mode 'shakespeare-hamlet-mode)	"Development")

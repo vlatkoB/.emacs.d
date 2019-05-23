@@ -74,9 +74,13 @@
 				 ("C-S-z" . redo))
   :init (global-undo-tree-mode)
 	      (defalias 'redo 'undo-tree-redo)
-	:custom (undo-tree-auto-save-history       t)
-	        (undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo/")))
+	;; :custom (undo-tree-auto-save-history       t)
+	;;         (undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo/")))
  )
+
+;; (global-set-key (kbd "C-z") 'undo)
+;; (global-set-key (kbd "C-S-z") 'redo)
+
 
 (use-package google-translate :ensure t
   :bind (("M-C-S-t" . google-translate-at-point)

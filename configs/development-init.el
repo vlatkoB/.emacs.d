@@ -120,7 +120,9 @@
   :diminish flyspell-mode
   :config
     (if (fboundp 'prog-mode)
-				(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+				(add-hook 'prog-mode-hook     'flyspell-prog-mode)
+				(add-hook 'gfm-mode-hook      'flyspell-prog-mode)
+				(add-hook 'markdown-mode-hook 'flyspell-prog-mode)
       (dolist (hook '(emacs-lisp-mode-hook yaml-mode shell-mode-hook haskell-mode-hook))
 				(add-hook hook 'flyspell-prog-mode)))
     (add-to-list 'ispell-skip-region-alist '("^|" . "^|]"))
