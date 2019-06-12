@@ -103,7 +103,7 @@
   '(column-number-mode                t)
   '(delete-selection-mode             t)
   '(global-hl-line-mode               t)
-  '(global-linum-mode                 t)
+  '(global-display-line-numbers-mode  t)
   '(line-number-mode                  t)
   '(menu-bar-mode                     t)
   '(normal-erase-is-backspace-mode    t)
@@ -119,6 +119,11 @@
   '(use-dialog-box nil)
   '(tab-width 2)
   )
+
+(custom-set-faces
+ '(line-number-current-line ((t (:background "#4e4e4e" :foreground "#d7ff5f"))))
+ )
+
 
 ;; Enable folding of indented text
 (use-package origami :ensure t

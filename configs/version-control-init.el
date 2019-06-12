@@ -29,7 +29,6 @@
 (use-package git-gutter :ensure t
   :diminish git-gutter-mode
   :init (add-hook 'prog-mode-hook 'git-gutter-mode)
-	      (git-gutter:linum-setup)
 				(custom-set-variables  '(git-gutter:hide-gutter t)
 															 '(git-gutter:verbosity   0))
   :custom (magit-status-buffer-switch-function 'switch-to-buffer)
