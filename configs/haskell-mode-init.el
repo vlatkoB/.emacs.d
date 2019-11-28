@@ -163,7 +163,7 @@
 		(haskell-process-use-presentation-mode           t)
 		(haskell-process-show-debug-tips nil)
 		(haskell-stylish-on-save                         nil) ;; twice undo-tree saving
-		(haskell-tags-on-save                            nil) ;; using projectile with codex every 30 secs
+		(haskell-tags-on-save                            t)
 		(haskell-complete-module-preferred
 		  '("ClassyPrelude" "Data.Conduit" "Data.Function" "Data.List" "Data.Map"))
 		(haskell-language-extensions

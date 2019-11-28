@@ -6,7 +6,8 @@
 
 (custom-set-variables
   '(tags-revert-without-query t)
-  '(js-indent-level 2)                ;; Indent in JS 2 places
+  '(js-indent-level           2)
+  '(css-indent-offset         2)
   '(company-backends '(company-etags
 											 company-bbdb
 											 company-capf
@@ -49,6 +50,22 @@
   :config (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
   )
 
+;; SCSS mode
+(defun scss-save-compile ()
+"Save and compile SCSS file."
+  (interactive)
+  (save-buffer)
+  (scss-compile)
+  )
+(use-package scss-mode :ensure t
+  :bind   ("<f5>" . scss-save-compile)
+  :config
+    (setq scss-compile-at-save t
+          scss-sass-options '("--sourcemap=none")
+          )
+    (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode))
+ )
+
 ;; Setup company
 (use-package company :ensure t
   :diminish company-mode
@@ -70,14 +87,16 @@
     (setq flycheck-highlighting-mode            'symbols
       	  flycheck-indication-mode              'left-fringe
           ;; flycheck-check-syntax-automatically   '(save idle-change new-line) ;; mode-enabled)
-          flycheck-check-syntax-automatically   '(save) ;; mode-enabled)
-          flycheck-idle-change-delay            5
+          ;; flycheck-check-syntax-automatically   '(save) ;; mode-enabled)
+          flycheck-check-syntax-automatically   '(idle-change) ;; mode-enabled)
+          flycheck-idle-change-delay            0.5
           flycheck-haskell-stack-ghc-executable "stack"
           flycheck-haskell-ghc-cache-directory
             (expand-file-name ".cache/flycheck-haskell" "~"))
    :config
      (bind-key "<f9>" 'list-flycheck-errors) ;; Must be here, otherwise Autoload error
 )
+
 
 (use-package flycheck-color-mode-line
   :ensure t
@@ -128,6 +147,17 @@
     (add-to-list 'ispell-skip-region-alist '("^|" . "^|]"))
  )
 
+;; JSON editing
+(use-package json-mode :ensure t
+  :custom
+     (json-reformat:indent-width 2)
+     )
+
+;; DHALL editing
+(use-package dhall-mode :ensure t
+  :custom
+    (dhall-use-header-line nil)
+  )
 
 ;; Prepare Snippets
 (use-package yasnippet :ensure t
@@ -207,6 +237,27 @@
   :init  (add-hook 'haskell-mode-hook  'keep-formation-mode)
  )
 
+;; Rules for automatic alignment
+(eval-after-load "align"
+  '(add-to-list 'align-rules-list '(haskell-types
+     (regexp . "\\(\\s-+\\)\\(::\\|∷\\)\\s-+")
+     (modes quote (haskell-mode purescript-mode)))))
+(eval-after-load "align"
+  '(add-to-list 'align-rules-list '(haskell-assignment
+     (regexp . "\\(\\s-+\\)=\\s-+")
+     (modes quote (haskell-mode purescript-mode)))))
+(eval-after-load "align"
+  '(add-to-list 'align-rules-list '(haskell-arrows
+     (regexp . "\\(\\s-+\\)\\(->\\|→\\)\\s-+")
+     (modes quote (haskell-mode purescript-mode)))))
+(eval-after-load "align"
+  '(add-to-list 'align-rules-list '(haskell-left-arrows
+     (regexp . "\\(\\s-+\\)\\(<-\\|←\\)\\s-+")
+     (modes quote (haskell-mode purescript-mode)))))
+(eval-after-load "align"
+  '(add-to-list 'align-rules-list '(haskell-comments
+     (regexp . "\\(\\s-+\\)\\(--\\)\\s-+")
+     (modes quote (haskell-mode purescript-mode)))))
 
 ;; Project managment
 (use-package project-init)
@@ -216,6 +267,7 @@
 
 ;; Programming langs
 (use-package haskell-init)
+(use-package purescript-init)
 
 
 (diminish 'flyspell-mode)

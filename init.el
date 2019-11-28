@@ -80,5 +80,4 @@
 ;;; init ends here
 
 ;; (message "%s" major-mode)
-;; (byte-recompile-directory "/home/vlatko/.emacs.d/elisp/flycheck/" 0)
-;; (byte-recompile-directory "/home/vlatko/.emacs.d/elpa/swoop-20160120.915/" 0)
+;; (byte-recompile-directory "~/.emacs.d/elisp/psci/" 0)

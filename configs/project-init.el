@@ -7,11 +7,11 @@
 (use-package projectile
   :ensure t
   :bind (("C-c f"   . projectile-find-file)
-         ("C-c C-g" . projectile-regenerate-tags)
+         ;; ("C-c C-g" . projectile-regenerate-tags)
          ("C-c P"   . projectile-commander)
          ("C-c C-c" . projectile-compile-project)
 				 ("C-c p w" . switch-desktop))
-  :init  	(projectile-global-mode)
+  :init  	(projectile-mode)
 	:config
     (add-to-list 'projectile-other-file-alist '("hs" "hamlet" "lucius" "cassius" "julius"))
     (projectile-projects-to-ecb-source-path)
@@ -22,13 +22,23 @@
 		(projectile-enable-idle-timer               t)
 		(projectile-indexing-method                'alien)
 		(projectile-sort-order                     'recentf)
-    (projectile-tags-command                   "codex update")
+    ;; (projectile-tags-command                   "codex update")
     (projectile-mode-line-prefix               " ")
 		(projectile-mode-line                      '(:eval (format "[%s]" (projectile-project-name))))
  )
 
 (setq projectile-globally-ignored-directories
-	(append '("BU" "dist-newstyle")
+      (append '("BU"
+                "dist-newstyle"
+                ".stack-work"
+                "dist-newstyle"
+                ".cache"
+                "dist"
+                "node_modules"
+                "output"
+                ".psci_modules"
+                ".spago"
+                )
 		projectile-globally-ignored-directories)
 )
 (setq projectile-globally-ignored-files

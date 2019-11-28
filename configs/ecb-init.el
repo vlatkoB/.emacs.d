@@ -35,6 +35,7 @@
 					(add-to-list 'ecb-compilation-buffer-names '("*Haskell Presentation*"))
 					(add-to-list 'ecb-compilation-buffer-names '("*Flycheck errors*"))
 					(add-to-list 'ecb-compilation-buffer-names '("*hoogle*"))
+					(add-to-list 'ecb-compilation-buffer-names '("*psci*"))
  )
 (ecb-layout-define "my-layout" left nil (ecb-select-edit-window 1))
 
