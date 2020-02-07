@@ -18,9 +18,9 @@
 	:custom
     (projectile-keymap-prefix                  (kbd "C-c p"))
 		(projectile-completion-system              'ido)
-		(projectile-enable-caching                  t)
-		(projectile-enable-idle-timer               t)
-		(projectile-indexing-method                'alien)
+		(projectile-enable-caching                  nil) ;; t)
+		(projectile-enable-idle-timer               nil) ;; t)
+		(projectile-indexing-method                'native) ;; 'alien)
 		(projectile-sort-order                     'recentf)
     ;; (projectile-tags-command                   "codex update")
     (projectile-mode-line-prefix               " ")

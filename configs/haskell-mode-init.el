@@ -27,18 +27,20 @@
 
 
 ;; Workaround fo haskell-mode stopped clearing REPL before load/reload
-(defun clear-then-load ()
-"Clear REPL and then load file."
-  (interactive)
-  (haskell-interactive-mode-clear)
-  (haskell-process-load-file)
-  )
-(defun clear-then-reload ()
-"Clear REPL and then reload file."
-  (interactive)
-  (haskell-interactive-mode-clear)
-  (haskell-process-reload)
-  )
+;; Not needed any more. All works as normal.
+;; (defun clear-then-load ()
+;; "Clear REPL and then load file."
+;;   (interactive)
+;;   (haskell-interactive-mode-clear)
+;;   (haskell-process-load-file)
+;;   )
+;; (defun clear-then-reload ()
+;; "Clear REPL and then reload file."
+;;   (interactive)
+;;   (haskell-interactive-mode-clear)
+;;   (haskell-process-reload)
+;;   )
+
 
 ;; Setup haskell-mode
 (use-package haskell-mode :ensure t
@@ -60,10 +62,10 @@
     (use-package haskell-process)
   :bind (:map haskell-mode-map
 			     ;; Repl stuff
-					 ;; ("<f5>"     . 'haskell-process-reload)
-					 ;; ("M-<f5>"   . 'haskell-process-load-file)
-					 ("<f5>"     . 'clear-then-reload)
-					 ("M-<f5>"   . 'clear-then-load)
+					 ("<f5>"     . 'haskell-process-reload)
+					 ("M-<f5>"   . 'haskell-process-load-file)
+					 ;; ("<f5>"     . 'clear-then-reload)
+					 ;; ("M-<f5>"   . 'clear-then-load)
 					 ("C-<f5>"   . 'haskell-interactive-bring)
 					 ("S-<f5>"   . 'haskell-interactive-switch)
 					 ("M-."      . 'haskell-mode-goto-loc)

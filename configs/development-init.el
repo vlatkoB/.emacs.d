@@ -114,8 +114,8 @@
 (use-package pkgbuild-mode :ensure t) ;; Arch pack manager
 (use-package yaml-mode     :ensure t)
 
-;; Curl in emacs buffer
-(use-package restclient :ensure t)
+;; Curl in emacs buffer ?? obsolete
+;; (use-package restclient :ensure t)
 
 
 ;; Disable prompt on exit when there are active processes
