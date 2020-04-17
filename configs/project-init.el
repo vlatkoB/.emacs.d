@@ -14,7 +14,7 @@
   :init  	(projectile-mode)
 	:config
     (add-to-list 'projectile-other-file-alist '("hs" "hamlet" "lucius" "cassius" "julius"))
-    (projectile-projects-to-ecb-source-path)
+    ;; (projectile-projects-to-ecb-source-path)
 	:custom
     (projectile-keymap-prefix                  (kbd "C-c p"))
 		(projectile-completion-system              'ido)

@@ -64,7 +64,7 @@
 
 (use-package haskell-mode-init)
 
-(use-package haskell-ide-engine-init :disabled)
+;; (use-package haskell-ide-engine-init :disabled)
 
 ;; Disable indentation after RET in Hamlet
 ;; (add-hook 'hamlet-mode (lambda() (electric-indent-mode -1)))

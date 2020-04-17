@@ -13,7 +13,7 @@
 ;; (set-frame-font "Source Code Pro-12" nil t)
 
 (custom-set-variables
- '(custom-safe-themes '("008dec0f293f1fc5c1125dfd74125078b32fbe3a6e6348589b071989364bdbbd" default)))
+ '(custom-safe-themes '("ae65ccecdcc9eb29ec29172e1bfb6cadbe68108e1c0334f3ae52414097c501d2" default)))
 
 ;; Theme
 (use-package moe-theme :ensure t
