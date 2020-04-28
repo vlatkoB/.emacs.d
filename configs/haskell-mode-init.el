@@ -127,7 +127,7 @@
 		(haskell-align-imports-pad-after-name            t) ;; nil)
 		(haskell-ask-also-kill-buffers                   nil)
 		(haskell-completions-complete-operators          nil)
-		(haskell-compile-cabal-build-command            "stack build -j 7 --fast --ghc-options=\"-j +RTS -A32M -RTS\"")
+		(haskell-compile-cabal-build-command            "stack build -j 7 --fast --ghc-options=\"-j +RTS -A128m -n4m -qg -RTS\"")
 		;; (haskell-hoogle-url                             "https://hoogle.haskell.org/?hoogle=%s")
 		(haskell-hoogle-command                          "hoogle --color -l --numbers --count=10")
 		(haskell-indentation-electric-flag               t)
