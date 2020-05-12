@@ -58,6 +58,7 @@
 
 ;; Ignore some messages in mini-buffer
 (defun my-command-error-function (data context caller)
+"Ignore msgs in mini-buffer."
   (when (not (memq (car data) '(buffer-read-only
                                 beginning-of-buffer
                                 end-of-buffer)
@@ -67,6 +68,9 @@
 
 (setq-default indent-tabs-mode nil)
 
+;; disable safe question ion for these local vars
+(put 'haskell-compile-stack-build-command 'safe-local-variable
+   (lambda (x) t))
 
 ;; (global-set-key (kbd "<f9>") 'save-buffer)
 
