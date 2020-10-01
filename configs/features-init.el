@@ -15,13 +15,6 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
 
-;; Suppress some byte-compile warnings
-(setq byte-compile-warnings
-			'(not obsolete suspicious	free-vars unresolved callargs redefine noruntime
-						constants	cl-functions interactive-only lexical make-local mapcar))
-;; (setq warning-minimum-level :error) ;; Suppress all Warnings
-
-
 ;; Highlight word with point through the buffer
 (use-package idle-highlight-mode :ensure t
   :init

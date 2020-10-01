@@ -30,7 +30,12 @@
 			;; use-package-compute-statistics    t
 			)
 
-;; (custom-set-variables'(package-load-list '(all (haskell-mode "20181122.823"))))
+;; Suppress some byte-compile warnings
+(setq byte-compile-warnings
+			'(not obsolete suspicious	free-vars unresolved callargs redefine noruntime
+						constants	cl-functions interactive-only lexical make-local mapcar))
+;; (setq warning-minimum-level :error) ;; Suppress all Warnings
+
 
 ;; Set custom Customization file
 (setq custom-file "~/.emacs.d/configs/dummy.el")
@@ -77,7 +82,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.xlf\\'" . nxml-mode))
 
-(byte-compile-disable-warning 'cl-functions)
+;; (byte-compile-disable-warning 'cl-functions)
 
 (set-language-environment "utf-8")
 
@@ -86,3 +91,4 @@
 
 ;; (message "%s" major-mode)
 ;; (byte-recompile-directory "~/.emacs.d/elisp/psci/" 0)
+;; (custom-set-variables'(package-load-list '(all (haskell-mode "20181122.823"))))

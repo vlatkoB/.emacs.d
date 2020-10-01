@@ -41,33 +41,6 @@
   (haskell-process-reload)
   )
 
-;; "old" hoogle search that displays the URL also
-;; "new" function doesn't
-(defun my-haskell-hoogle (query &optional info)
-  "Do a Hoogle search for QUERY.
-When `haskell-hoogle-command' is non-nil, this command runs
-that.  Otherwise, it opens a hoogle search result in the browser.
-If prefix argument INFO is given, then `haskell-hoogle-command'
-is asked to show extra info for the items matching QUERY.."
-  (interactive
-   (let ((def (haskell-ident-at-point)))
-     (if (and def (symbolp def)) (setq def (symbol-name def)))
-     (list (read-string (if def
-                            (format "Hoogle query (default %s): " def)
-                          "Hoogle query: ")
-                        nil nil def)
-           current-prefix-arg)))
-  (if (null haskell-hoogle-command)
-      (browse-url (format haskell-hoogle-url (url-hexify-string query)))
-    (let ((command (concat haskell-hoogle-command
-                           (if info " -i " "")
-                           " --color " (shell-quote-argument query))))
-      (with-help-window "*hoogle*"
-        (with-current-buffer standard-output
-          (insert (shell-command-to-string command))
-          (ansi-color-apply-on-region (point-min) (point-max))))))
-  )
-
 
 ;; Setup haskell-mode
 (use-package haskell-mode :ensure t
@@ -114,8 +87,8 @@ is asked to show extra info for the items matching QUERY.."
 					 ("M-i"      . 'haskell-process-do-info)
 					 ("M-t"      . 'haskell-process-do-type)
 					 ;; ("S-<f4>"   . 'haskell-hayoo)
-					 ;; (  "<f4>"   . 'haskell-hoogle)
-					 (  "<f4>"   . 'my-haskell-hoogle)
+					 (  "<f4>"   . 'haskell-hoogle)
+					 ;; (  "<f4>"   . 'my-haskell-hoogle)
 					 ("C-<f4>"   . 'haskell-w3m-open-haddock)
 					 ;; Testing
 					 ("S-<f12>"  . 'haskell-session-target-test)
