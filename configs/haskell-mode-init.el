@@ -166,6 +166,7 @@
 		(haskell-process-show-debug-tips nil)
 		(haskell-stylish-on-save                         nil) ;; twice undo-tree saving
 		(haskell-tags-on-save                            t)
+    (haskell-font-lock-quasi-quote-modes             nil)
 		(haskell-complete-module-preferred
 		  '("ClassyPrelude" "Data.Conduit" "Data.Function" "Data.List" "Data.Map"))
 		(haskell-language-extensions
