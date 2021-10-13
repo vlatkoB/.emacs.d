@@ -93,6 +93,8 @@
 				 ("C-x   <right>" . back-button-local-forward)
 				 ("C-x C-<left>"  . back-button-global-backward)
 				 ("C-x C-<right>" . back-button-global-forward)
+				 ("<mouse-8>"     . back-button-global-backward)
+				 ("<mouse-9>"     . back-button-global-forward)
 				)
   :init (back-button-mode t)
  )

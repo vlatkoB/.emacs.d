@@ -3,7 +3,11 @@
 ;;; Code:
 
 ;; Start server
-(server-start)
+(require 'server)
+(unless (server-running-p)
+  (server-start)
+  )
+
 
 ;; Identificate myself
 (setq user-login-name   "vlatkoB")
